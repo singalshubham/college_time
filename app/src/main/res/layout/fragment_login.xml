@@ -1,78 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
-        <variable name="loginFragment"
-            type="com.example.shubhu.collegetime.view.fragments.LoginFragment"/>
+
+        <variable
+            name="loginFragment"
+            type="com.example.shubhu.collegetime.view.fragments.LoginFragment" />
+
+        <variable
+            name="loginViewModel"
+            type="com.example.shubhu.collegetime.viewmodel.LoginFragmentViewModel" />
     </data>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.shubhu.collegetime.view.fragments.LoginFragment">
 
-
-    <EditText
-        android:id="@+id/et_user_mail"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="100dp"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress" />
+        android:layout_height="match_parent"
+        tools:context="com.example.shubhu.collegetime.view.fragments.LoginFragment">
 
-    <EditText
-        android:id="@+id/et_user_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_user_mail"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="40dp"
-        android:hint="@string/password"
-        android:inputType="textPassword" />
 
-    <Button
-        android:id="@+id/bt_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_user_password"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/login" />
+        <EditText
+            android:id="@+id/et_user_mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="100dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:text="@={loginViewModel.userEmail}"
+            />
 
-    <TextView
-        android:id="@+id/tv_forgot_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/bt_login"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="@string/forgot_password"
-        android:onClick="@{()->loginFragment.openForgotPasswordFragment()}"/>
 
-    <TextView
-        android:id="@+id/tv_or"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_forgot_password"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="@string/or" />
+        <EditText
+            android:id="@+id/et_user_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_user_mail"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="40dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:text="@={loginViewModel.userPassword}"
+           />
 
-    <TextView
-        android:id="@+id/bt_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_or"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="@string/register"
-        android:onClick="@{()->loginFragment.openRegisterFragment()}"/>
+        <Button
+            android:id="@+id/bt_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_user_password"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="40dp"
+            android:onClick="@{()->loginFragment.clickOnLogin()}"
+            android:text="@string/login" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tv_forgot_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bt_login"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:onClick="@{()->loginFragment.openForgotPasswordFragment()}"
+            android:text="@string/forgot_password" />
+
+        <TextView
+            android:id="@+id/tv_or"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_forgot_password"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/or" />
+
+        <TextView
+            android:id="@+id/bt_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_or"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:onClick="@{()->loginFragment.openRegisterFragment()}"
+            android:text="@string/register" />
+
+    </RelativeLayout>
 </layout>
